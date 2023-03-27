@@ -1,0 +1,24 @@
+---
+- hosts: aws_ec2
+  become: true
+  user: ubuntu
+  gather_facts: true 
+  vars:
+    pip_install_packages:
+          - name: docker
+
+  tasks:
+    - name: Ensure group "docker" exists
+      ansible.builtin.group:
+        name: docker
+        state: present
+    - name: adding existing user ubuntu to group sudo
+      ansible.builtin.user:
+        name: ubuntu
+        groups: docker
+        append: yes
+    - name: Touch the same file, but add/remove some permissions
+      ansible.builtin.file:
+        path: /var/run/docker.sock
+        state: touch
+        mode: u+rw,g+rwx,o+rwx

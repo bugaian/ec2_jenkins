@@ -1,0 +1,41 @@
+[ubuntu1.bugaian.com]
+ubuntu1.bugaian.com
+
+[linux]
+## alpha.example.org
+roky85.bugaian.com
+fedora37.bugaian.com
+ubuntu1.bugaian.com
+
+[linux:vars]
+become = true
+
+[redhat]
+roky85.bugaian.com
+fedora37.bugaian.com
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern, you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group:
+
+[windows]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+172.23.144.1
+PC0ZLCK6.bugaian.com
+
+[windows:vars]
+ansible_user=ansible
+ansible_password=k0zak)((K
+#ansible_connection=winrm
+ansible_connection=ssh
+ansible_shell_type=powershell
+ansible_winrm_server_cert_validation=ignore
+

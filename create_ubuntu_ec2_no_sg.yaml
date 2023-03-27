@@ -1,0 +1,17 @@
+- name: create an ubuntu instance on EC2
+  hosts: localhost
+  tasks:
+   
+  - name: start the instance
+    amazon.aws.ec2_instance:
+      name: ansible
+      image_id: ami-076bdd070268f9b8d 
+      key_name: ansible
+      region: eu-central-1
+      availability_zone: eu-central-1c
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      instance_type: t2.small
+      security_group: default 
+      tags:
+        Env: ansible
