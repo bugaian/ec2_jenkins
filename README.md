@@ -1,4 +1,4 @@
-# Simple ansible script to deploy Demoapp on ec2 instance
+# Simple ansible script to deploy Demoapp and Jenkins on ec2 instance
 
 main.yaml script will deploy a demo nodejs app to an ec2 intance and will check if its running
 
@@ -14,6 +14,12 @@ You shoudl have all plugins and packages required to manage an ec2 instance from
 - ansible
 - ansible aws plugins
 - ansible roles mentioned in playbooks
+ansible-galaxy install geerlingguy.docker
+ansible-galaxy install geerlingguy.pip
+ansible-galaxy install geerlingguy.java
+ansible-galaxy install geerlingguy.jenkins
+
+
 
 Configure aws via aws configure and also configure vault and store your aws keys in group_vars/all folder.
 
